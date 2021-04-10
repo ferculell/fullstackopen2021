@@ -1,0 +1,33 @@
+title User creates a new note
+
+browser -> server: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note
+
+note over server:
+The server creates a new note object,
+and adds it to an array called notes.
+Then, the server asks the browser
+to do a new HTTP GET request
+to the address defined in the
+header's Location - the address notes.
+end note
+
+server --> browser: Status code 302 Found
+browser -> server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/notes
+server --> browser: HTML code
+browser -> server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.css
+server --> browser: main.css
+browser -> server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.js
+server --> browser: main.js
+
+note over browser:
+The browser starts executing js-code
+that requests JSON data from server. 
+end note
+
+browser -> server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.json
+server --> browser: [{"content":"from Argentina again","date":"2021-04-10T13:56:53.129Z"}, ...]
+
+note over browser:
+The browser renders notes
+to display.
+end note

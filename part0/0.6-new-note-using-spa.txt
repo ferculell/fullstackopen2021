@@ -1,0 +1,17 @@
+title New note using SPA
+
+note over browser:
+The event handler in the JS
+script creates a new note
+and sends it to the server.
+end note
+
+browser -> server: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+server --> browser: Status code 201 Created
+
+note over browser:
+The same event handler re-renders
+the note list with the new note added
+to display without sending
+further HTTP requests.
+end note
